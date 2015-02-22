@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>VTAF Report</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/open-sans/stylesheet-font.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <h1><i>VTAF</i></h1>
+            <p><i>Automation as never before.</i>
+            </p>
+        </div>
+        <div class="container container-white">
+            <h3>Report Details</h3>
+
+            <div class="details">
+                <div class="col-md-6">
+                    <div class="col-md-6">
+                        <h4><i class="glyphicon glyphicon-calendar"></i> Date:</h4>
+                        <h5>2015-07-14</h5>
+
+                        <h4>Time:</h4>
+                        <h5>00:00:00:00</h5>
+
+                        <h4>Computer Name:</h4>
+                        <h5>cl-mwarapitiya</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Date:</h4>
+                        <h5>2015-07-14</h5>
+
+                        <h4>Time:</h4>
+                        <h5>00:00:00:00</h5>
+
+                        <h4>Computer Name:</h4>
+                        <h5>cl-mwarapitiya</h5>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="container container-white">
+            <p>hello</p>
+        </div>
+    </section>
+
+    <script src="bower_components/chartjs/Chart.min.js"></script>
+
+    <script>
+        var data = [
+            {
+                value: 300,
+                color: "#F7464A",
+                highlight: "#FF5A5E",
+                label: "Red"
+            },
+            {
+                value: 50,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "Green"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Yellow"
+            }
+        ];
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myPieChart = new Chart(ctx).Pie(data);
+    </script>
+</body>
+
+</html>

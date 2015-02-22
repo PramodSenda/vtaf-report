@@ -1,0 +1,25 @@
+{
+  "name": "VTAF Report",
+  "version": "0.0.0",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "authors": [
+    "Malindu Warapitiya"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "jquery": "~2.1.3",
+    "chartjs": "~1.0.1"
+  }
+}
