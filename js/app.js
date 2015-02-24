@@ -11,74 +11,58 @@ var testStepStatus=false;
 
 
 
-function intializePieChart(failvalue,passvalue){
-var data = [
-    {
-        value: parseInt(failvalue),
-        color: "#F7464A",
-        highlight: "#FF5A5E",
-        label: "Fail"
+function intializePieChart(failvalue, passvalue) {
+    var data = [
+        {
+            value: parseInt(failvalue),
+            color: "#F7464A",
+            highlight: "#FF5A5E",
+            label: "Fail"
             },
-    {
-        value: parseInt(passvalue),
-        color: "#00b200",
-        highlight: "#00cc00",
-        label: "Pass"
+        {
+            value: parseInt(passvalue),
+            color: "#00b200",
+            highlight: "#00cc00",
+            label: "Pass"
             }
         ];
 
-var ctx = document.getElementById("myChart").getContext("2d");
-var myPieChart = new Chart(ctx).Pie(data);
-//console.log(data);
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myPieChart = new Chart(ctx).Pie(data);
 }
 
+function getJson() {
+    var jsonObject;
 
-
-function getJson(){
-    var jsonObject
-    $.get('report.html.data', function(xml){ 
+    $.get('report.html.data', function (xml) {
         jsonObject = $.xml2json(xml, true);
-       // console.log(jsonObject);
+        // console.log(jsonObject);
         createReport(jsonObject);
-    }); 
+    });
 }
 
-function createReport(jsonObject){
-  intializePieChart(jsonObject.activity[0].totalfailedcount, jsonObject.activity[0].totalsuccesscount);
+function createReport(jsonObject) {
 
-$("#exetime").text(jsonObject.activity[0].timestamp);
-$("#osystem").text(jsonObject.activity[0].osversion);
-$("#lang").text(jsonObject.activity[0].language);
-$("#totalerror").text(jsonObject.activity[0].totalerrorcount);
-$("#cname").text(jsonObject.activity[0].host);
-$("#screensize").text(jsonObject.activity[0].screenresolution);
-$("#duration").text(jsonObject.activity[0].duration);
-$("#totalwarning").text(jsonObject.activity[0].totalwarningcount);
+    intializePieChart(jsonObject.activity[0].totalfailedcount, jsonObject.activity[0].totalsuccesscount);
+
+    $("#exetime").text(jsonObject.activity[0].timestamp);
+    $("#osystem").text(jsonObject.activity[0].osversion);
+    $("#lang").text(jsonObject.activity[0].language);
+    $("#totalerror").text(jsonObject.activity[0].totalerrorcount);
+    $("#cname").text(jsonObject.activity[0].host);
+    $("#screensize").text(jsonObject.activity[0].screenresolution);
+    $("#duration").text(jsonObject.activity[0].duration);
+    $("#totalwarning").text(jsonObject.activity[0].totalwarningcount);
 
 testSuites = jsonObject.activity[0].activity[0].activity;
 
 
  var tree = $("#tree");
-/*for(var testsuite=0;testsuite<testSuites.length;testsuite++){
-  
- 
-  tree.append('<li>yo yo</li>');
 
-
-}
-*/
 testSuiteLength = testSuites.length 
 bulidtree(tree,testSuites,"testsuite");
 
 }
-
-
-//#########################################################
-
-
-
-
-
 
 
 function bulidtree(tree,treeitem,type){
@@ -153,8 +137,12 @@ function createBcomponent(bcomponent){
     testcase.append(bcomponent) ;//as UL list
     bcomponent.append(bcomponentteststep);
 
+//expand/collapse ul list
+$('.archive_month ul').hide();
 
-}
+$('.months').click(function () {
+    $(this).find('ul').slideToggle();
+});
 
 
 
@@ -178,14 +166,17 @@ function createBcomponent(bcomponent){
 
 
 // A $( document ).ready() block.
-$( document ).ready(function() {
-   
-   getJson();
+$(document).ready(function () {
+
+    new jQueryCollapse($("#tree"), {
+        query: 'div h2',
+        open: function () {
+            this.slideDown(150);
+        },
+        close: function () {
+            this.slideUp(150);
+        }
+    });
+
+    getJson();
 });
-
-
-
-
-
-
-
