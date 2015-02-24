@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="fonts/open-sans/stylesheet-font.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/stylesheet.css">
-    
-   
+
+
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 
                         <h4>Language</h4>
                         <h5 id="lang">Unknown</h5>
-                        
+
                         <h4>Total Errors</h4>
                         <h5 id="totalerror">0</h5>
                     </div>
@@ -47,9 +47,9 @@
 
                         <h4>Duration </h4>
                         <h5 id="duration">Unknown</h5>
-                        
+
                         <h4>Total Warnings</h4>
-                        <h5 ="totalwarning">0</h5>
+                        <h5 id="totalwarning">0</h5>
                     </div>
 
                 </div>
@@ -62,32 +62,116 @@
         <div class="container container-white">
             <div class="row dark-row">
                 <div class="col-md-12">
-                   <div class="pull-left">
-                       <button class="btn btn-primary btn-sm">Expand</button>
-                   </div>
-                   <div class="pull-right">
-                       <input type="radio" name="radiogroup" value="RadioButton">Pass</input>
-                        <input type="radio" name="radiogroup" value="RadioButton">Fail</input>
-                        <input type="radio" name="radiogroup" value="RadioButton">Something</input>
-                   </div>
+                    <div class="pull-left">
+                        <button class="btn btn-primary btn-sm">Expand</button>
+                        <button class="btn btn-primary btn-sm">Collapse</button>
+                    </div>
+                    <div class="pull-right">
+                        <label>Test Case Filter :</label>
+                        <input type="checkbox" name="radiogroup" value="RadioButton"> Pass</input>
+                        <input type="checkbox" name="radiogroup" value="RadioButton"> Fail</input>
+                        <input type="checkbox" name="radiogroup" value="RadioButton"> Blocked</input>
+                    </div>
                 </div>
             </div>
-            
             <div class="row">
-                <ul id="tree" >
-                    
-                </ul>
+                <div class="panel-group" id="accordion1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">Collapsible Group Item #1
+                        </a>
+                    </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">Panel 1</div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Collapsible Group Item #2
+                        </a>
+                    </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-body">
+                                    <h4 class="panel-title">Heading</h4>
+                                    <div class="panel-group" id="accordion21">
+                                        <div class="panel">
+                                            <a data-toggle="collapse" data-parent="#accordion21" href="#collapseTwoOne">View details 2.1 »
+                                    </a>
+                                            <div id="collapseTwoOne" class="panel-collapse collapse">
+                                                <div class="panel-body">Details 1</div>
+                                            </div>
+                                        </div>
+                                        <div class="panel ">
+                                            <a data-toggle="collapse" data-parent="#accordion21" href="#collapseTwoTwo">View details 2.2 »
+                                    </a>
+                                            <div id="collapseTwoTwo" class="panel-collapse collapse">
+                                                <div class="panel-body">Details 2</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">Collapsible Group Item #3
+                        </a>
+                    </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <div class="panel-group" id="accordion2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThreeOne">Collapsible Group Item #3.1
+                                        </a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapseThreeOne" class="panel-collapse collapse in">
+                                            <div class="panel-body">Panel 3.1</div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThreeTwo">Collapsible Group Item #3.2
+                                        </a>
+                                    </h4>
+                                        </div>
+                                        <div id="collapseThreeTwo" class="panel-collapse collapse">
+                                            <div class="panel-body">Panel 3.2</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
 
 
-    <script src="js/jquery-1.9.1.min.js" type="text/javascript" language="javascript"></script> 
-    <script src="js/jquery.xml2json.js" type="text/javascript" language="javascript"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" language="javascript"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery.xml2json/src/jquery.xml2json.js"></script>
     <script src="bower_components/chartjs/Chart.min.js"></script>
     <script src="js/app.js"></script>
 
-    
+
 </body>
 
 </html>

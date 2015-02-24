@@ -1,10 +1,10 @@
 @base-color: #219cd3;
 @secondry-color: #8a8f91;
 //@background-color : #131b1f;
-@background-color: #ccc;
-@base-font: 'Open Sans', sans-serif;
-@border-radius: 3px;
-
+@background-color: lighten(#373E48, 10%);
+@base-font: 'Open Sans',
+sans-serif;
+@border-radius: 0px;
 body {
     background-color: @background-color;
     font-family: @base-font;
@@ -59,10 +59,25 @@ section {
     }
 }
 
-.dark-row{
+li {
+    //background-color: @secondry-color;
+    height: 35px;
+    list-style: none;
+    line-height: 35px;
+    //color: #fff;
+}
+
+.dark-row {
     background-color: lighten(@secondry-color, 20%);
     border-top-left-radius: @border-radius;
     border-top-right-radius: @border-radius;
     height: 60px;
     padding: 10px;
+    line-height: 60px;
+    .clear-top;
+    margin-bottom: 10px;
+    
+    input[type=checkbox]{
+        margin-left: 5px;
+    }
 }
