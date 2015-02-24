@@ -106,6 +106,24 @@
 					</activity>
 					
 	         </activity>
+	         <activity
+					foldername="Call"
+					result="Failed"
+					duration="0ms"
+					type="folder"
+					rid="1">
+					<params/>
+					<activity
+						testcasename="Call_CheckElementPresent2"
+						datasource=""
+						iterationcount="1"
+						maxchildren="0"
+						result="Success"
+						duration="0ms"
+						type="test case"
+						rid="2">
+						</activity>
+	       </activity>			
 	    </activity>
 	</activity>
 

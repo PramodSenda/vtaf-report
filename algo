@@ -5,11 +5,14 @@ var test
 
 bulidtree(testsutes,"testsuites")
 
-var testsuitelength,
+var testsuitelength = testsutes.length ,
 	testcaselength,
 	teststepslength;
 
-var testsuitecount=0,testcasecount=0,teststepcount=0;	
+var testsuitecount=0,testcasecount=0,teststepcount=0;
+var testsuitestatus=flase;
+var testcasestatus=false;
+var teststepstatus=false;
 
 function bulidtree(treeitem,type){
 	
@@ -22,35 +25,56 @@ function bulidtree(treeitem,type){
 
 if(type=="testsuite"){
    if(testsuitecount<testsuitelength){
+    testsuitestatus=true;
+    testsuite=testsutes[testsuitecount];
 	tree.append(testsuite);
     testsuitecount++;
     testcases = testsuite.testcasesArray;
+    testcaselength = testcases.length
 	bulidtree(testcase,"testcase"); //array of testcase of testsuite
    }
 }
 else if(type="testcase"){
     if(testcasecount<testcaselength){
+    testcasestatus=true;
+      testcase=testcases[testcasecount];
 	  testsuite.append(testcase);
       testcasecount++;
       teststeps = testcase.teststepArray;
+      teststepslength = teststeps.length
       buildtree(teststeps,"teststep")
 
      }
 }
 else if(type=="teststep"){
  if(teststepcount<teststepslength){
+   teststepstatus=true;
+   teststep =  teststeps[teststepcount];
+   teststepcount++;
 	if(teststep.type=="bComponent"){
 	createBcomponent(bComponent);
-	teststepcount++;
+	
 	
 	}else{
       testcase.append(testStep);
-      teststepcount++;
+      
     }
-else{
-	
-	buildtree(testsuite,"testsuite");
+ }
 }
+  if(teststepstatus){
+    buildtree(teststeps,"teststep");
+    teststepstatus=false;
+    }
+  else if(testcasestatus){
+    bulidtree(testcase,"testcase");
+    testcasestatus=false;
+  }else if(testsuitestatus){
+   bulidtree(testsutes,"testsuites");
+   testsuitestatus=false;
+
+  }  
+	
+
 
 
  }
