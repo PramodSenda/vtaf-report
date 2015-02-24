@@ -1,0 +1,112 @@
+
+<report>
+	<activity
+	user="rdissanayake"
+	host="CD-RDSILVA"
+	osversion="Microsoft Windows NT 6.1.7601 Service Pack 1"
+	language="EN-US"
+	screenresolution="1366X768"
+	timestamp="09/25/2014 3:53:36 "
+	result="Success"
+	duration="UNKNOWN"
+	type="root"
+	totalerrorcount="34"
+	totalwarningcount="0"
+	totalsuccesscount="74"
+	totalfailedcount="34"
+	totalblockedcount="0">
+	<detail>
+		Test Execution Report
+	</detail>
+	<activity
+			testsuitename="VTAF Test Execution Report"
+			runconfigname=""
+			runlabel=""
+			maxchildren="0"
+			result="Success"
+			duration="UNKNOWN"
+			type="test suite"
+			rid="a106eb7a56abd88">
+			
+			<activity
+					foldername="Call"
+					result="Failed"
+					duration="0ms"
+					type="folder"
+					rid="1">
+					<params/>
+					
+					<activity
+						testcasename="Call_CheckElementPresent"
+						datasource=""
+						iterationcount="1"
+						maxchildren="0"
+						result="Success"
+						duration="0ms"
+						type="test case"
+						rid="2">
+						<activity
+							modulename="Call_CheckElementPresent"
+							moduletype="UserCode"
+							result="Success"
+							duration="0ms"
+							type="test module"
+							rid="2">
+							
+							<datarow>
+							</datarow>
+									
+
+								<item
+									time="3:53:51"
+									level="Success"
+									category="Open">
+									<message>
+										Open URL : https://accounts.google.com/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=http://mail.google.com/mail/&amp;scc=1&amp;ltmpl=default&amp;ltmplcache=2
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+
+								</item>	
+								<item
+							       moduletype="UserCode"
+							       result="Success"
+							       duration="0ms"
+							       type="b component"
+							       rid="2">
+							        <bitem
+									time="3:53:51"
+									level="Success"
+									category="Check Element Present">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+								    </item>
+
+								<item
+									time="3:53:51"
+									level="Success"
+									category="Check Element Present">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								</item>	
+						</activity>
+					</activity>
+					
+	         </activity>
+	    </activity>
+	</activity>
+
+</report>

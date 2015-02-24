@@ -1,0 +1,70 @@
+var testsutes;
+var testcases;
+var teststeps;
+var test
+
+bulidtree(testsutes,"testsuites")
+
+var testsuitelength,
+	testcaselength,
+	teststepslength;
+
+var testsuitecount=0,testcasecount=0,teststepcount=0;	
+
+function bulidtree(treeitem,type){
+	
+
+
+// Get the TestSuites length [JSON]
+
+// Goto 1st TS
+
+
+if(type=="testsuite"){
+   if(testsuitecount<testsuitelength){
+	tree.append(testsuite);
+    testsuitecount++;
+    testcases = testsuite.testcasesArray;
+	bulidtree(testcase,"testcase"); //array of testcase of testsuite
+   }
+}
+else if(type="testcase"){
+    if(testcasecount<testcaselength){
+	  testsuite.append(testcase);
+      testcasecount++;
+      teststeps = testcase.teststepArray;
+      buildtree(teststeps,"teststep")
+
+     }
+}
+else if(type=="teststep"){
+ if(teststepcount<teststepslength){
+	if(teststep.type=="bComponent"){
+	createBcomponent(bComponent);
+	teststepcount++;
+	
+	}else{
+      testcase.append(testStep);
+      teststepcount++;
+    }
+else{
+	
+	buildtree(testsuite,"testsuite");
+}
+
+
+ }
+
+}
+
+
+
+}
+
+
+createBcomponent(b component){
+	testcase.append(b component) as UL list
+    b component.append(bcomponent test step)
+
+
+}
