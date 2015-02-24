@@ -46,15 +46,15 @@ function createReport(jsonObject) {
 
     for (var testsuite = 0; testsuite < testSuites.length; testsuite++) {
 
-//        var str = '<li><i class="glyphicon glyphicon-plus"></i> Test Suite Name';
-//            str += '<ul class="months"><li>Something here</li></ul>';
-//            str += '</li>';
-//        tree.append(str);
+        //        var str = '<li><i class="glyphicon glyphicon-plus"></i> Test Suite Name';
+        //            str += '<ul class="months"><li>Something here</li></ul>';
+        //            str += '</li>';
+        //        tree.append(str);
     }
 }
 
 //expand/collapse ul list
-$('.tree ul').hide();
+$('.archive_month ul').hide();
 
 $('.months').click(function () {
     $(this).find('ul').slideToggle();
@@ -62,5 +62,16 @@ $('.months').click(function () {
 
 // A $( document ).ready() block.
 $(document).ready(function () {
+
+    new jQueryCollapse($("#tree"), {
+        query: 'div h2',
+        open: function () {
+            this.slideDown(150);
+        },
+        close: function () {
+            this.slideUp(150);
+        }
+    });
+
     getJson();
 });

@@ -6,7 +6,6 @@
     <title>VTAF Report</title>
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="fonts/open-sans/stylesheet-font.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/stylesheet.css">
 
@@ -75,90 +74,82 @@
                 </div>
             </div>
             <div class="row">
-                <div class="panel-group" id="accordion1">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">Collapsible Group Item #1
-                        </a>
-                    </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
-                            <div class="panel-body">Panel 1</div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Collapsible Group Item #2
-                        </a>
-                    </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div class="panel-body">
-                                    <h4 class="panel-title">Heading</h4>
-                                    <div class="panel-group" id="accordion21">
-                                        <div class="panel">
-                                            <a data-toggle="collapse" data-parent="#accordion21" href="#collapseTwoOne">View details 2.1 »
-                                    </a>
-                                            <div id="collapseTwoOne" class="panel-collapse collapse">
-                                                <div class="panel-body">Details 1</div>
-                                            </div>
-                                        </div>
-                                        <div class="panel ">
-                                            <a data-toggle="collapse" data-parent="#accordion21" href="#collapseTwoTwo">View details 2.2 »
-                                    </a>
-                                            <div id="collapseTwoTwo" class="panel-collapse collapse">
-                                                <div class="panel-body">Details 2</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="container">
+                    <div id="tree">
+                        <div class="testSuite">
+                            <h2>Test Suite #1</h2>
+                            <div class="testCase">
+                                <h2>Test Case #1</h2>
+                                <div class="testCase col-md-12">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Action</th>
+                                            <th>Event</th>
+                                            <th>IDK</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Click</td>
+                                            <td>element</td>
+                                            <td>sdfsdf</td>
+                                        </tr>
+                                    </table>
                                 </div>
+                                <p>***Test Area***</p>
+                            </div>
+                        </div>
+                        <div class="testSuite">
+                            <h2>Test Suite #2</h2>
+                            <div class="testCase">
+                                <h2>Test Case #1</h2>
+                                <div class="testCase col-md-12">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Action</th>
+                                            <th>Event</th>
+                                            <th>IDK</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Click</td>
+                                            <td>element</td>
+                                            <td>sdfsdf</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <h2>Business Comp. #1</h2>
+                                                <div>
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Click</td>
+                                                            <td>asd</td>
+                                                            <td>sdfsdf</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>type</td>
+                                                            <td>dsf</td>
+                                                            <td>fghfg</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Click</td>
+                                            <td>element</td>
+                                            <td>sdfsdf</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <p>***Test Area***</p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">Collapsible Group Item #3
-                        </a>
-                    </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-
-                                <div class="panel-group" id="accordion2">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThreeOne">Collapsible Group Item #3.1
-                                        </a>
-                                    </h4>
-                                        </div>
-                                        <div id="collapseThreeOne" class="panel-collapse collapse in">
-                                            <div class="panel-body">Panel 3.1</div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThreeTwo">Collapsible Group Item #3.2
-                                        </a>
-                                    </h4>
-                                        </div>
-                                        <div id="collapseThreeTwo" class="panel-collapse collapse">
-                                            <div class="panel-body">Panel 3.2</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -168,10 +159,9 @@
     <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" language="javascript"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/jquery.xml2json/src/jquery.xml2json.js"></script>
+    <script src="bower_components/jQuery-Collapse/src/jquery.collapse.js"></script>
     <script src="bower_components/chartjs/Chart.min.js"></script>
     <script src="js/app.js"></script>
-
-
 </body>
 
 </html>

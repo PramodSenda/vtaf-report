@@ -1,7 +1,8 @@
 @base-color: #219cd3;
 @secondry-color: #8a8f91;
 //@background-color : #131b1f;
-@background-color: lighten(#373E48, 10%);
+@background-color: lighten(#373E48,
+10%);
 @base-font: 'Open Sans',
 sans-serif;
 @border-radius: 0px;
@@ -59,12 +60,24 @@ section {
     }
 }
 
-li {
-    //background-color: @secondry-color;
-    height: 35px;
-    list-style: none;
-    line-height: 35px;
-    //color: #fff;
+.testSuite {
+    h2 {
+        background-color: lighten(@secondry-color, 30%);
+        color: #fff;
+        padding-left: 5px;
+        border-radius: 3px;
+        border: 2px solid #aaa;
+        .clear-bottom;
+        margin-bottom: 3px;
+    }
+}
+
+.testCase {
+    h2 {
+        font-size: 20px;
+        margin-left: 0px;
+        .clear-top;
+    }
 }
 
 .dark-row {
@@ -76,8 +89,7 @@ li {
     line-height: 60px;
     .clear-top;
     margin-bottom: 10px;
-    
-    input[type=checkbox]{
+    input[type=checkbox] {
         margin-left: 5px;
     }
 }
