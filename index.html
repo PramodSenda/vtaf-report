@@ -52,8 +52,17 @@
                     </div>
 
                 </div>
-                <div class="col-md-6 text-center">
-                    <canvas id="myChart" width="150" height="150"></canvas>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <canvas id="myChart" width="150" height="150"></canvas>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><span class="green"></span> Pass : 74</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><span class="red"></span> Fail : 34</p>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -67,21 +76,28 @@
                     </div>
                     <div class="pull-right">
                         <label>Test Case Filter :</label>
-                        <input type="checkbox" name="radiogroup" value="RadioButton"> Pass</input>
-                        <input type="checkbox" name="radiogroup" value="RadioButton"> Fail</input>
-                        <input type="checkbox" name="radiogroup" value="RadioButton"> Blocked</input>
+                        <input type="checkbox" name="radiogroup" value="RadioButton" /> Pass
+                        <input type="checkbox" name="radiogroup" value="RadioButton" /> Fail
+                        <input type="checkbox" name="radiogroup" value="RadioButton" /> Blocked
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="container">
                     <div id="tree">
-                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section>
+        <footer class="text-center">
+            <p>&copy; Virtusa 2015</p>
+            <p>All rights reserved</p>
+        </footer>
+    </section>
+
 
 
     <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" language="javascript"></script>

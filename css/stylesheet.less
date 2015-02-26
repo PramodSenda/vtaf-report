@@ -80,6 +80,22 @@ section {
     }
 }
 
+.resultBox(@color) {
+    border: 0px;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    background-color: @color;
+}
+
+.red {
+    .resultBox(red);
+}
+
+.green {
+    .resultBox(green);
+}
+
 .dark-row {
     background-color: lighten(@secondry-color, 20%);
     border-top-left-radius: @border-radius;
