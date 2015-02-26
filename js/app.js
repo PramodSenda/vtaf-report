@@ -108,7 +108,7 @@ function bulidtree(tree, treeitem, type) {
             str += "<div class=\"testCase col-md-12\">";
             str += '<table id="testcase' + TestCaseID + '" class="table col-md-12">';
             str += '<tr class="teststep">';
-            str += '<th class="col-md-1">#</th>';
+            str += '<th style="width:40px;">#</th>';
             str += '<th class="col-md-2">Time</th>';
             str += '<th class="col-md-2">Level</th>';
             str += '<th class="col-md-2">Action</th>';
@@ -149,7 +149,7 @@ function bulidtree(tree, treeitem, type) {
                 str += "<div>";
                 str += "<table id=\"bcomponent" + bComponentID + "\" class=\"table\"><tbody></tbody>";
                 str += "<tr class=\"bcomponent\">";
-                str += '<th class="col-md-1">#</th>';
+                str += '<th style="width:40px;">#</th>';
                 str += '<th class="col-md-2">Time</th>';
                 str += '<th class="col-md-2">Level</th>';
                 str += '<th class="col-md-2">Action</th>';
