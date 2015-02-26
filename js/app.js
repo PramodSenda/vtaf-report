@@ -81,7 +81,7 @@ function bulidtree(tree, treeitem, type) {
             testSuiteStatus = true;
             testSuite = treeitem[testSuiteCount];
             //tree.append('<h4>' + testSuite.foldername + '</h4>');
-            tree.append('<div id="testsuite' + TestSuiteID + '" class="testSuite"><h2>' + testSuite.foldername + '</h2></div>');
+            tree.append('<div id="testsuite' + TestSuiteID + '" class="testSuite"><h2><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + testSuite.foldername + '</h2></div>');
             testSuiteCount++;
             testCases = testSuite.activity;
             testCaseCount = 0;
@@ -104,7 +104,7 @@ function bulidtree(tree, treeitem, type) {
             //testSuiteNode.append('<ul id="testcase'+TestCaseID+'"></ul>');
 
             var str = "";
-            str += "<div class=\"testCase\"><h2>" + testCase.testcasename + "</h2>"
+            str += '<div class=\"testCase\"><h2><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + testCase.testcasename + '</h2>';
             str += "<div class=\"testCase col-md-12\">";
             str += '<table id="testcase' + TestCaseID + '" class="table col-md-12">';
             str += '<tr class="teststep">';
@@ -122,9 +122,9 @@ function bulidtree(tree, treeitem, type) {
             testSuiteNode.append(str);
 
 
-            testCaseCount ++;
-            TestSuiteID ++;
-            TestCaseID ++;
+            testCaseCount++;
+            TestSuiteID++;
+            TestCaseID++;
             //console.log(testCase.activity[0].item);
             testSteps = testCase.activity[0].item;
             testStepsLength = testSteps.length;
@@ -144,8 +144,8 @@ function bulidtree(tree, treeitem, type) {
                 var str = "";
                 str += "<tr class=\"teststep\" id=\"teststep" + TestStepID + "\">";
                 str += "<td>" + (TestStepID + 1) + "</td>";
-                str += "<td colspan=\"4\">";
-                str += "<h2>" + testStep.category + "<\/h2>";
+                str += "<td class='bcompnent' colspan=\"4\">";
+                str += '<h2><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + testStep.category + '</h2>';
                 str += "<div>";
                 str += "<table id=\"bcomponent" + bComponentID + "\" class=\"table\"><tbody></tbody>";
                 str += "<tr class=\"bcomponent\">";
@@ -242,11 +242,20 @@ function treeBuild() {
             this.slideUp(150);
         }
     });
-}
 
+    //click event for expand tree [Test Suites]
+    $('h2 > a').click(function (e) {
+        var element = $(this).find('i');
+        if (element.hasClass('glyphicon-plus')) {
+            element.removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        } else {
+            element.removeClass('glyphicon-minus').addClass('glyphicon-plus');
+        }
+    });
+}
 
 // A $( document ).ready() block.
 $(document).ready(function () {
-
     getJson();
+
 });
