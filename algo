@@ -49,7 +49,7 @@ else if(type="testcase"){
 else if(type=="teststep"){
  if(teststepcount<teststepslength){
    teststepstatus=true;
-   teststep =  teststeps[teststepcount];
+   teststep =  teststeps[teststepcount];				
    teststepcount++;
 	if(teststep.type=="bComponent"){
 	createBcomponent(bComponent);
