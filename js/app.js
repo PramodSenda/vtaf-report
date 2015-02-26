@@ -1,5 +1,6 @@
 var testSuites;
 var testCases;
+var testSteps;
 
 var testSuiteLength;
 var testCasesLength;
@@ -10,7 +11,10 @@ var testSuiteCount = 0,
 var testSuiteStatus = false;
 var testCaseStatus = false;
 var testStepStatus = false;
-
+var TestSuiteID=0;
+var TestCaseID=0;
+var TestStepID=0;
+var bComponentID=0;
 
 function intializePieChart(failvalue, passvalue) {
     var data = [{
@@ -59,6 +63,7 @@ function createReport(jsonObject) {
 
     testSuiteLength = testSuites.length
     bulidtree(tree, testSuites, "testsuite");
+    treeBuild();
 
 }
 
@@ -67,13 +72,16 @@ function bulidtree(tree, treeitem, type) {
 
 
 
-    if (type == "testsuite") {
+    if (type === "testsuite") {
         if (testSuiteCount < testSuiteLength) {
             testSuiteStatus = true;
             testSuite = treeitem[testSuiteCount];
-            tree.append('<li>' + testSuite.foldername + '</li>');
+            //tree.append('<h4>' + testSuite.foldername + '</h4>');
+            tree.append('<div id="testsuite'+TestSuiteID+'" class="testSuite"><h2>' + testSuite.foldername + '</h2></div>');
             testSuiteCount++;
             testCases = testSuite.activity;
+            testCaseCount=0;
+            TestStepID=0;
             testCaseLength = testCases.length
                 //console.log(testCases);
                 //console.log(testCaseLength);
@@ -81,37 +89,103 @@ function bulidtree(tree, treeitem, type) {
 
             bulidtree(tree, testCases, "testcase"); //array of testcase of testsuite
         }
-    } else if (type = "testcase") {
+    } else if (type === "testcase") {
         if (testCaseCount < testCaseLength) {
             testCaseStatus = true;
             testCase = treeitem[testCaseCount];
-            tree.append('<ul id="testcase"></ul>');
-            var testCaseNode = $("#testcase");
-            testCaseNode.append(testCase.testcasename);
+            //tree.append('<ul id="testsuite'+TestSuiteID+'"></ul>');
+            var testSuiteNode = $("#testsuite"+TestSuiteID);
+            //testSuiteNode.append("<li id=''>"+testCase.testcasename+"</li>");
+            //testSuiteNode.append('<div class="testCase"><h2>'+testCase.testcasename+'</h2></div>');
+            //testSuiteNode.append('<ul id="testcase'+TestCaseID+'"></ul>');
+
+            var str="";
+                str += "<div class=\"testCase\"><h2>"+testCase.testcasename+"</h2>"
+                str += "<div class=\"testCase col-md-12\">";
+                str += "<table id=\"testcase"+TestCaseID+"\" class=\"table\">";
+                str += "<tr class=\"teststep\">";
+                str += '<th class="col-md-1">#</th>';
+                str += '<th class="col-md-2">Time</th>';
+                str += '<th class="col-md-2">Level</th>';
+                str += '<th class="col-md-2">Action</th>';
+                str += '<th class="col-md-8">Message</th>';
+                str += "<\/tr>";
+                str += "<\/table>";
+                str += "<\/div>";
+                str += "<p>***Test Area***<\/p>";
+                str += "<\/div>";
+            testSuiteNode.append(str);
+
+
             testCaseCount++;
-            //teststeps = testcase.teststepArray;
-            //teststepslength = teststeps.length
-            //buildtree(teststeps,"teststep")
+            TestSuiteID++;
+            TestCaseID++;
+            //console.log(testCase.activity[0].item);
+            testSteps = testCase.activity[0].item;
+            testStepsLength = testSteps.length;
+            testStepCount=0;
+            //console.log(testSteps);
+            bulidtree(tree,testSteps,"teststep");
 
         }
-    } else if (type == "teststep") {
-        if (teststepcount < teststepslength) {
-            teststepstatus = true;
-            teststep = teststeps[teststepcount];
-            teststepcount++;
-            if (teststep.type == "bComponent") {
-                createBcomponent(bComponent);
+    } else if (type === "teststep") {
+        if (testStepCount < testStepsLength) {
+            testStepStatus = true;
+            testStep = testSteps[testStepCount];
+            testStepCount++;
+            console.log(testStep);
+            testCaseNode=$("#testcase"+(TestCaseID-1) + " tr[class=\"teststep\"]:last");
+            if (testStep.type === "bComponent") {
+                var str="";
+                    str += "<tr class=\"teststep\" id=\"teststep"+ TestStepID +"\">";
+                    str += "<td>"+(TestStepID+1)+"</td>";
+                    str += "<td colspan=\"4\">";
+                    str += "<h2>"+testStep.category+"<\/h2>";
+                    str += "<div>";
+                    str += "<table id=\"bcomponent"+bComponentID+"\" class=\"table\"><tbody></tbody>";
+                    str += "<tr class=\"bcomponent\">";
+                    str += '<th class="col-md-1">#</th>';
+                    str += '<th class="col-md-2">Time</th>';
+                    str += '<th class="col-md-2">Level</th>';
+                    str += '<th class="col-md-2">Action</th>';
+                    str += '<th class="col-md-8">Message</th>';
+                    str += "<\/tr>";
+                    str += "<\/table>";
+                    str += "<\/div>";
+                    str += "<\/td>";
+                    str += "<\/tr>";
 
+                 $( str ).insertAfter( testCaseNode );
+               
+                
+               // testCaseNode.append('<li id="teststep'+TestStepID+'">'+testStep.category+'</li>');
+                 //testCaseNode.append(str);
+
+                  createBcomponent(testCaseNode,testStep);
+                  bComponentID++;
 
             } else {
-                testcase.append(testStep);
 
+                var str = '<tr class=\"teststep\" id="teststep' + TestStepID +'">';
+                    str += '<td>'+(TestStepID+1)+'</td>';
+                    str += '<td>'+testStep.time+'</td>';
+                    str += '<td>'+testStep.level+'</td>';
+                    str += '<td>'+testStep.category+'</td>';
+                    str += '<td>'+testStep.message[0].text+'</td>';
+                    str += '</tr>';
+               
+               //testCaseNode.append('<tr><th>#</th><th>Time</th><th>Level</th><th>Action</th><th>Message</th></tr>');
+               $( str ).insertAfter( testCaseNode );
+               // testCaseNode.append('<li id="teststep'+TestStepID+'">'+testStep.category+'</li>');
+              
             }
+
+              TestStepID++; 
         }
     }
     if (testStepStatus) {
         testStepStatus = false;
-        buildtree(teststeps, "teststep");
+        bulidtree(tree,testSteps, "teststep");
 
     } else if (testCaseStatus) {
         testCaseStatus = false;
@@ -128,25 +202,36 @@ function bulidtree(tree, treeitem, type) {
 }
 
 
-function createBcomponent(bcomponent) {
+function createBcomponent(testCaseNode,testStep) {
 
-    testcase.append(bcomponent); //as UL list
-    bcomponent.append(bcomponentteststep);
+   
+    var bComponentNode = $("#bcomponent"+bComponentID+" > tbody:last");
 
-    //expand/collapse ul list
-    $('.archive_month ul').hide();
+   
 
-    $('.months').click(function() {
-        $(this).find('ul').slideToggle();
-    });
-
+    var bCompItems = testStep.bitem;
+    
+   for(var c=0;c<bCompItems.length;c++){
+   var bstep = (TestStepID+1)+"."+(c+1)
+   var bcomp = bCompItems[c];
+   var strVar="";
+       strVar += "<tr>";
+       strVar += "<td>"+bstep+"<\/td>";
+       strVar += "<td>"+bcomp.time+"<\/td>";
+       strVar += "<td>"+bcomp.level+"<\/td>";
+       strVar += "<td>"+bcomp.category+"<\/td>";
+       strVar += "<td>"+bcomp.message[0].text+"<\/td>";
+       strVar += "<\/tr>";
+    
+     //$( strVar ).insertAfter( bComponentNode );
+    bComponentNode.append(strVar);
+      
+   }
+    
 }
 
-
-// A $( document ).ready() block.
-$(document).ready(function() {
-
-    new jQueryCollapse($("#tree"), {
+function treeBuild(){
+     new jQueryCollapse($("#tree"), {
         query: 'div h2',
         open: function() {
             this.slideDown(150);
@@ -155,6 +240,11 @@ $(document).ready(function() {
             this.slideUp(150);
         }
     });
+}
+
+
+// A $( document ).ready() block.
+$(document).ready(function() {
 
     getJson();
 });

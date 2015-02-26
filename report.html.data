@@ -12,7 +12,7 @@
 	type="root"
 	totalerrorcount="34"
 	totalwarningcount="0"
-	totalsuccesscount="74"
+	totalsuccesscount="880"
 	totalfailedcount="34"
 	totalblockedcount="0">
 	<detail>
@@ -29,7 +29,7 @@
 			rid="a106eb7a56abd88">
 			
 			<activity
-					foldername="Call"
+					foldername="Test Suite One"
 					result="Failed"
 					duration="0ms"
 					type="folder"
@@ -37,7 +37,7 @@
 					<params/>
 					
 					<activity
-						testcasename="Call_CheckElementPresent"
+						testcasename="Test Case One"
 						datasource=""
 						iterationcount="1"
 						maxchildren="0"
@@ -46,7 +46,7 @@
 						type="test case"
 						rid="2">
 						<activity
-							modulename="Call_CheckElementPresent"
+							modulename="Test Case One"
 							moduletype="UserCode"
 							result="Success"
 							duration="0ms"
@@ -60,9 +60,9 @@
 								<item
 									time="3:53:51"
 									level="Success"
-									category="Open">
+									category="Test Step One">
 									<message>
-										Open URL : https://accounts.google.com/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=http://mail.google.com/mail/&amp;scc=1&amp;ltmpl=default&amp;ltmplcache=2
+										Open URL : https://accounts.google.com/
 									</message>
 									<metainfo
 										codefile="UNKNOWN"
@@ -74,12 +74,13 @@
 							       moduletype="UserCode"
 							       result="Success"
 							       duration="0ms"
-							       type="b component"
+							       type="bComponent"
+							       category="Business Component One"
 							       rid="2">
 							        <bitem
 									time="3:53:51"
 									level="Success"
-									category="Check Element Present">
+									category="BC Step One">
 									<message>
 										Check Element Present command passed. Object gmail.userName
 									</message>
@@ -93,7 +94,7 @@
 								<item
 									time="3:53:51"
 									level="Success"
-									category="Check Element Present">
+									category="Step Two">
 									<message>
 										Check Element Present command passed. Object gmail.userName
 									</message>
@@ -106,15 +107,16 @@
 					</activity>
 					
 	         </activity>
-	         <activity
-					foldername="Call"
+             <activity
+					foldername="Test Suite Two"
 					result="Failed"
 					duration="0ms"
 					type="folder"
 					rid="1">
 					<params/>
+					
 					<activity
-						testcasename="Call_CheckElementPresent2"
+						testcasename="Test Case One"
 						datasource=""
 						iterationcount="1"
 						maxchildren="0"
@@ -122,8 +124,105 @@
 						duration="0ms"
 						type="test case"
 						rid="2">
+						<activity
+							modulename="Test Case One"
+							moduletype="UserCode"
+							result="Success"
+							duration="0ms"
+							type="test module"
+							rid="2">
+							
+							<datarow>
+							</datarow>
+									
+                                <item
+									time="3:53:51"
+									level="Success"
+									category="Test Step One">
+									<message>
+										Open URL : https://accounts.google.com/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=http://mail.google.com/mail/&amp;scc=1&amp;ltmpl=default&amp;ltmplcache=2
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+
+								</item>	
+								
+								<item
+							       moduletype="UserCode"
+							       result="Success"
+							       duration="0ms"
+							       type="bComponent"
+							       category="Business Component Two"
+							       rid="2">
+							        <bitem
+									time="3:53:51"
+									level="Success"
+									category="BC Step one">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+								    <bitem
+									time="3:53:51"
+									level="Success"
+									category="BC Step two">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+								    <bitem
+									time="3:53:51"
+									level="Success"
+									category="BC Step Three">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+								    <bitem
+									time="3:53:51"
+									level="Success"
+									category="BC Step Four">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+								    </item>
+								    <item
+									time="3:53:51"
+									level="Success"
+									category="Step Three">
+									<message>
+										Open URL : https://accounts.google.com/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=http://mail.google.com/mail/&amp;scc=1&amp;ltmpl=default&amp;ltmplcache=2
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+
+								</item>	
 						</activity>
-	       </activity>			
+				</activity>
+			</activity>		
+
+	        
 	    </activity>
 	</activity>
 
