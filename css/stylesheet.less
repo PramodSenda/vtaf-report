@@ -1,11 +1,10 @@
 @base-color: #219cd3;
 @secondry-color: #8a8f91;
 //@background-color : #131b1f;
-@background-color: lighten(#373E48,
-10%);
+@background-color: #323a45;
 @base-font: 'Open Sans',
 sans-serif;
-@border-radius: 0px;
+@border-radius: 3px;
 body {
     background-color: @background-color;
     font-family: @base-font;
@@ -62,13 +61,15 @@ section {
 
 .testSuite {
     h2 {
-        background-color: lighten(@secondry-color, 30%);
-        color: #fff;
-        padding-left: 5px;
-        border-radius: 3px;
-        border: 2px solid #aaa;
         .clear-bottom;
+        background-color: #E6E6E6;
+        padding-left: 5px;
+        border-radius: @border-radius;
+        border: 1px solid #aaa;
         margin-bottom: 3px;
+        a {
+            text-decoration: none !important;
+        }
     }
 }
 
@@ -97,7 +98,7 @@ section {
 }
 
 .dark-row {
-    background-color: lighten(@secondry-color, 20%);
+    background-color: lighten(@secondry-color, 35%);
     border-top-left-radius: @border-radius;
     border-top-right-radius: @border-radius;
     height: 60px;
