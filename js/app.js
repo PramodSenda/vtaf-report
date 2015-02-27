@@ -116,7 +116,7 @@ function bulidtree(tree, treeitem, type) {
             str += "<\/tr>";
             str += "<\/table>";
             str += "<\/div>";
-            str += "<p>***Test Area***<\/p>";
+            str += "<p>sdasdsd</p>";
             str += "<\/div>";
 
             testSuiteNode.append(str);
