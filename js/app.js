@@ -81,12 +81,15 @@ function bulidtree(tree, treeitem, type) {
         if (testSuiteCount < testSuiteLength) {
             testSuiteStatus = true;
             testSuite = treeitem[testSuiteCount];
+
             if(testSuite.result==="Success"){
                status="success";
             }else{
                status="failed";
             }
-            tree.append('<div class="testSuite"><h2 data-status="'+status+'">' + testSuite.foldername + '</h2><div id="testsuite' + TestSuiteID + '" class="testSuite"></div></div>');
+            //tree.append('<h4>' + testSuite.foldername + '</h4>');
+            tree.append('<div class="testSuite"><h2 data-status="' + status + '"><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + testSuite.foldername + '</h2><div id="testsuite' + TestSuiteID + '" class="testSuite"></div></div>');
+
             testSuiteCount++;
             TestSuiteID ++;
             testCases = testSuite.activity;
@@ -112,7 +115,7 @@ function bulidtree(tree, treeitem, type) {
             }
 
             var str = "";
-            str += '<h2 data-status="'+status+'">'+ testCase.testcasename + '</h2>';
+            str += '<h2 data-status="'+status+'"><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + testCase.testcasename + '</h2>';
             str += "<div class=\"testCase col-md-12\">";
             str += '<table id="testcase' + TestCaseID + '" class="table col-md-12">';
             str += '<tr class="teststep">';
@@ -129,9 +132,7 @@ function bulidtree(tree, treeitem, type) {
 
             testSuiteNode.append(str);
 
-
             testCaseCount ++;
-            
             TestCaseID ++;
             //console.log(testCase.activity[0].item);
             testSteps = testCase.activity[0].item;
@@ -159,8 +160,8 @@ function bulidtree(tree, treeitem, type) {
                 var str = "";
                 str += "<tr class=\"teststep\" id=\"teststep" + TestStepID + "\">";
                 str += "<td>" + (TestStepID + 1) + "</td>";
-                str += "<td colspan=\"4\">";
-                str += "<h2 data-status=\""+status+"\">" + testStep.category + "<\/h2>";
+                str += "<td class='bcompnent' colspan=\"4\">";
+                str += '<h2 data-status="' + status + '"><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + testStep.category + '</h2>';
                 str += "<div>";
                 str += "<table id=\"bcomponent" + bComponentID + "\" class=\"table\"><tbody></tbody>";
                 str += "<tr class=\"bcomponent\">";
@@ -264,11 +265,20 @@ function treeBuild() {
             this.slideUp(150);
         }
     });
-}
 
+    //click event for expand tree [Test Suites]
+    $('h2 > a').click(function (e) {
+        var element = $(this).find('i');
+        if (element.hasClass('glyphicon-plus')) {
+            element.removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        } else {
+            element.removeClass('glyphicon-minus').addClass('glyphicon-plus');
+        }
+    });
+}
 
 // A $( document ).ready() block.
 $(document).ready(function () {
-
     getJson();
+
 });

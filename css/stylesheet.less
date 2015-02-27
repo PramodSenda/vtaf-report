@@ -5,6 +5,7 @@
 @base-font: 'Open Sans',
 sans-serif;
 @border-radius: 3px;
+@padding: 3px 0px 3px 5px;
 body {
     background-color: @background-color;
     font-family: @base-font;
@@ -22,6 +23,10 @@ section {
         color: @base-color;
         .clear-bottom;
     }
+}
+
+h2 {
+    font-size: 18px;
 }
 
 table {
@@ -64,11 +69,20 @@ table {
     }
 }
 
+.glyphicon-border {
+    font-size: 12px;
+    line-height: 15px;
+    background-color: #ccc;
+    border: 1px solid #666;
+    padding: 3px 3px 3px 5px;
+    margin-right: 10px;
+}
+
 .testSuite {
     h2 {
         .clear-bottom;
         background-color: #E6E6E6;
-        padding-left: 5px;
+        padding: @padding;
         border-radius: @border-radius;
         border: 1px solid #aaa;
         margin-bottom: 3px;
@@ -80,9 +94,15 @@ table {
 
 .testCase {
     h2 {
-        font-size: 20px;
-        margin-left: 0px;
         .clear-top;
+        padding: @padding;
+        margin-left: 20px;
+    }
+}
+
+.bcompnent {
+    h2 {
+        margin-left: 0px !important;
     }
 }
 
@@ -113,5 +133,11 @@ table {
     margin-bottom: 10px;
     input[type=checkbox] {
         margin-left: 5px;
+    }
+}
+
+footer{
+    p{
+        .clear-bottom;
     }
 }
