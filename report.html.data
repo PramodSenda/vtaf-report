@@ -30,7 +30,7 @@
 			
 			<activity
 					foldername="Test Suite One"
-					result="Failed"
+					result="Success"
 					duration="0ms"
 					type="folder"
 					rid="1">
@@ -72,7 +72,7 @@
 								</item>	
 								<item
 							       moduletype="UserCode"
-							       result="Success"
+							       level="Success"
 							       duration="0ms"
 							       type="bComponent"
 							       category="Business Component One"
@@ -105,6 +105,41 @@
 								</item>	
 						</activity>
 					</activity>
+					<activity
+						testcasename="Test Case OneTwo"
+						datasource=""
+						iterationcount="1"
+						maxchildren="0"
+						result="Failed"
+						duration="0ms"
+						type="test case"
+						rid="2">
+						<activity
+							modulename="Test Case One"
+							moduletype="UserCode"
+							result="Failed"
+							duration="0ms"
+							type="test module"
+							rid="2">
+							
+							<datarow>
+							</datarow>
+									
+                                <item
+									time="3:53:51"
+									level="Success"
+									category="Test Step One">
+									<message>
+										Open URL : https://accounts.google.com/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=http://mail.google.com/mail/&amp;scc=1&amp;ltmpl=default&amp;ltmplcache=2
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+
+								</item>	
+							</activity>
+					</activity>
 					
 	         </activity>
              <activity
@@ -120,14 +155,14 @@
 						datasource=""
 						iterationcount="1"
 						maxchildren="0"
-						result="Success"
+						result="Failed"
 						duration="0ms"
 						type="test case"
 						rid="2">
 						<activity
 							modulename="Test Case One"
 							moduletype="UserCode"
-							result="Success"
+							result="Failed"
 							duration="0ms"
 							type="test module"
 							rid="2">
@@ -151,14 +186,14 @@
 								
 								<item
 							       moduletype="UserCode"
-							       result="Success"
+							       level="Success"
 							       duration="0ms"
 							       type="bComponent"
 							       category="Business Component Two"
 							       rid="2">
 							        <bitem
 									time="3:53:51"
-									level="Success"
+									level="Failed"
 									category="BC Step one">
 									<message>
 										Check Element Present command passed. Object gmail.userName
@@ -182,7 +217,7 @@
 								    </bitem>
 								    <bitem
 									time="3:53:51"
-									level="Success"
+									level="Failed"
 									category="BC Step Three">
 									<message>
 										Check Element Present command passed. Object gmail.userName
@@ -220,6 +255,7 @@
 								</item>	
 						</activity>
 				</activity>
+				
 			</activity>		
 
 	        
