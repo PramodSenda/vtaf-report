@@ -34,6 +34,24 @@ table {
     word-wrap: break-word;
 }
 
+.btn {
+    border: 1px solid #94d0ff;
+}
+
+.btn:hover {
+    border: 1px solid #94d0ff
+}
+
+.btn-base {
+    color: #2098f5;
+    background-color: #fff;
+}
+
+.btn-base:hover {
+    background-color: lighten(#2098f5, 40%);
+    color: #2098f5;
+}
+
 .container-white {
     padding-bottom: 10px;
     margin-bottom: 15px;
@@ -70,16 +88,19 @@ table {
 }
 
 .glyphicon-border {
+    border-radius: 50px;
     font-size: 12px;
     line-height: 15px;
-    background-color: #ccc;
-    border: 1px solid #666;
+    color: #fff;
+    background-color: #00b200;
+    border: 1px solid #999;
     padding: 3px 3px 3px 5px;
     margin-right: 10px;
 }
 
 .testSuite {
     h2 {
+        .clear-top;
         .clear-bottom;
         background-color: #E6E6E6;
         padding: @padding;
@@ -88,6 +109,17 @@ table {
         margin-bottom: 3px;
         a {
             text-decoration: none !important;
+        }
+    }
+    .suite-data {
+        margin-left: 15px;
+        p {
+            content: " ";
+            display: block;
+            visibility: hidden;
+            height: 0;
+            clear: both;
+            .clear-bottom;
         }
     }
 }
@@ -136,8 +168,8 @@ table {
     }
 }
 
-footer{
-    p{
+footer {
+    p {
         .clear-bottom;
     }
 }
