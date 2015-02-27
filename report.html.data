@@ -103,10 +103,31 @@
 										codeline="UNKNOWN"
 										loglvl="Success"/>
 								</item>	
+								<item
+							       moduletype="UserCode"
+							       level="Success"
+							       duration="0ms"
+							       type="bComponent"
+							       category="Business Component Two"
+							       rid="2">
+							        <bitem
+									time="3:53:51"
+									level="Success"
+									category="BC2 Step One">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+								    </item>
+
 						</activity>
 					</activity>
 					<activity
-						testcasename="Test Case OneTwo"
+						testcasename="Test Case Two"
 						datasource=""
 						iterationcount="1"
 						maxchildren="0"
@@ -115,7 +136,7 @@
 						type="test case"
 						rid="2">
 						<activity
-							modulename="Test Case One"
+							modulename="Test Case Two"
 							moduletype="UserCode"
 							result="Failed"
 							duration="0ms"
@@ -138,6 +159,38 @@
 										loglvl="Success"/>
 
 								</item>	
+								<item
+							       moduletype="UserCode"
+							       level="Success"
+							       duration="0ms"
+							       type="bComponent"
+							       category="TC2 Business Component One"
+							       rid="2">
+							        <bitem
+									time="3:53:51"
+									level="Failed"
+									category="BC Step one">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+								    <bitem
+									time="3:53:51"
+									level="Success"
+									category="BC Step two">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+								    </item>
 							</activity>
 					</activity>
 					

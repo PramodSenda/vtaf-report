@@ -14,6 +14,7 @@ var testSuites,
     TestCaseID = 0,
     TestStepID = 0,
     bComponentID = 0,
+    testCaseStepCount=0;
     status;
 
 function intializePieChart(failvalue, passvalue) {
@@ -88,7 +89,7 @@ function bulidtree(tree, treeitem, type) {
                status="failed";
             }
             //tree.append('<h4>' + testSuite.foldername + '</h4>');
-            tree.append('<div class="testSuite"><h2 data-status="' + status + '"><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + testSuite.foldername + '</h2><div id="testsuite' + TestSuiteID + '" class="testSuite"></div></div>');
+            tree.append('<div class="testSuite"><h2 data-status="' + status + '"><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + testSuite.foldername + '</h2><div id="testsuite' + TestSuiteID + '"></div></div>');
 
             testSuiteCount++;
             TestSuiteID ++;
@@ -159,7 +160,7 @@ function bulidtree(tree, treeitem, type) {
             if (testStep.type === "bComponent") {
                 var str = "";
                 str += "<tr class=\"teststep\" id=\"teststep" + TestStepID + "\">";
-                str += "<td>" + (TestStepID + 1) + "</td>";
+                str += "<td>" + (++testCaseStepCount) + "</td>";
                 str += "<td class='bcompnent' colspan=\"4\">";
                 str += '<h2 data-status="' + status + '"><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + testStep.category + '</h2>';
                 str += "<div>";
@@ -189,7 +190,7 @@ function bulidtree(tree, treeitem, type) {
 
                
                 var str = '<tr class="teststep" data-status=\"'+status+'\" id="teststep' + TestStepID + '">';
-                str += '<td>' + (TestStepID + 1) + '</td>';
+                str += '<td>' + (++testCaseStepCount) + '</td>';
                 str += '<td>' + testStep.time + '</td>';
                 str += '<td>' + testStep.level + '</td>';
                 str += '<td>' + testStep.category + '</td>';
@@ -211,6 +212,7 @@ function bulidtree(tree, treeitem, type) {
 
     } else if (testCaseStatus) {
         testCaseStatus = false;
+        testCaseStepCount=0;
         bulidtree(tree, testCases, "testcase");
 
     } else if (testSuiteStatus) {
@@ -231,7 +233,7 @@ function createBcomponent(testCaseNode, testStep) {
     var bCompItems = testStep.bitem;
 
     for (var c = 0; c < bCompItems.length; c++) {
-        var bstep = (TestStepID + 1) + "." + (c + 1)
+        var bstep = testCaseStepCount + "." + (c + 1)
         var bcomp = bCompItems[c];
 
         if(bcomp.level==="Success"){
