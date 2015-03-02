@@ -70,6 +70,7 @@ function createReport(jsonObject) {
     testSuiteLength = testSuites.length
     bulidtree(tree, testSuites, "testsuite");
     treeBuild();
+    intializeTestStatus();
 
 }
 
@@ -197,7 +198,12 @@ function bulidtree(tree, treeitem, type) {
                 str += '<td>' + testStep.time + '</td>';
                 str += '<td>' + testStep.level + '</td>';
                 str += '<td>' + testStep.category + '</td>';
-                str += '<td>' + testStep.message[0].text + '</td>';
+                if(status == "success"){
+                 str += '<td>' + testStep.message[0].text + '</td>';
+                }else{
+                 str += '<td>' + testStep.message[0].text + '<a href="#"><img class="errthumbimg" src="images/20140925155436SS.png_Thumb.png"/></a></td>';
+                }
+                
                 str += '</tr>';
 
                 //testCaseNode.append('<tr><th>#</th><th>Time</th><th>Level</th><th>Action</th><th>Message</th></tr>');
@@ -281,6 +287,33 @@ function treeBuild() {
         }
     });
 }
+
+
+function intializeTestStatus(){
+  var passElements = $('h2[data-status="success"');
+  var failedElements = $('h2[data-status="failed"');
+  var failedSteps = $('tr[data-status="failed"]');
+  var passedSteps = $('tr[data-status="success"]');
+
+   $(passElements).each(function(){
+         $(this).find("i").css("background-color","green");
+    });
+
+  $(failedElements).each(function(){
+         $(this).find("i").css("background-color","red");
+    });
+
+   $(failedSteps).each(function(){
+         $(this).css("color","red");
+    });
+   $(passedSteps).each(function(){
+         $(this).css("color","green");
+    });
+
+}
+
+
+
 
 // A $( document ).ready() block.
 $(document).ready(function () {

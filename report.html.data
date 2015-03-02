@@ -131,14 +131,14 @@
 						datasource=""
 						iterationcount="1"
 						maxchildren="0"
-						result="Failed"
+						result="Success"
 						duration="0ms"
 						type="test case"
 						rid="2">
 						<activity
 							modulename="Test Case Two"
 							moduletype="UserCode"
-							result="Failed"
+							result="Success"
 							duration="0ms"
 							type="test module"
 							rid="2">
@@ -168,7 +168,7 @@
 							       rid="2">
 							        <bitem
 									time="3:53:51"
-									level="Failed"
+									level="Success"
 									category="BC Step one">
 									<message>
 										Check Element Present command passed. Object gmail.userName
@@ -225,8 +225,10 @@
 									
                                 <item
 									time="3:53:51"
-									level="Success"
-									category="Test Step One">
+									level="Error"
+									category="Test Step One"
+									errimg="images/20140925155436SS.png"
+									errthumb="images/20140925155436SS.png_Thumb.png">
 									<message>
 										Open URL : https://accounts.google.com/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=http://mail.google.com/mail/&amp;scc=1&amp;ltmpl=default&amp;ltmplcache=2
 									</message>
@@ -239,15 +241,17 @@
 								
 								<item
 							       moduletype="UserCode"
-							       level="Success"
+							       level="Failed"
 							       duration="0ms"
 							       type="bComponent"
 							       category="Business Component Two"
 							       rid="2">
 							        <bitem
 									time="3:53:51"
-									level="Failed"
-									category="BC Step one">
+									level="Error"
+									category="BC Step one"
+									errimg="images/20140925155436SS.png"
+									errthumb="images/20140925155436SS.png_Thumb.png">
 									<message>
 										Check Element Present command passed. Object gmail.userName
 									</message>
@@ -270,8 +274,10 @@
 								    </bitem>
 								    <bitem
 									time="3:53:51"
-									level="Failed"
-									category="BC Step Three">
+									level="Error"
+									category="BC Step Three"
+									errimg="images/20140925155436SS.png"
+									errthumb="images/20140925155436SS.png_Thumb.png">
 									<message>
 										Check Element Present command passed. Object gmail.userName
 									</message>
