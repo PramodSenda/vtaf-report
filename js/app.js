@@ -201,7 +201,7 @@ function bulidtree(tree, treeitem, type) {
                 if(status == "success"){
                  str += '<td>' + testStep.message[0].text + '</td>';
                 }else{
-                 str += '<td>' + testStep.message[0].text + '<a href="#"><img class="errthumbimg" src="images/20140925155436SS.png_Thumb.png"/></a></td>';
+                 str += '<td><div class="errordiv">' + testStep.message[0].text + '<div><a href="#"><img src="images/20140925155436SS.png_Thumb.png"/></a></div><div><a>Stack Trace</a></div><div></td>';
                 }
                 
                 str += '</tr>';
