@@ -12,8 +12,8 @@
 	type="root"
 	totalerrorcount="34"
 	totalwarningcount="0"
-	totalsuccesscount="88"
-	totalfailedcount="34"
+	totalsuccesscount="4"
+	totalfailedcount="5"
 	totalblockedcount="0">
 	<detail>
 		Test Execution Report
@@ -240,7 +240,7 @@
 								</item>	
 								
 								<item
-							       moduletype="UserCode"
+							      
 							       level="Failed"
 							       duration="0ms"
 							       type="bComponent"
@@ -314,9 +314,148 @@
 								</item>	
 						</activity>
 				</activity>
-				
-			</activity>		
+					<activity
+						testcasename="Test Case Two"
+						datasource=""
+						iterationcount="1"
+						maxchildren="0"
+						result="Failed"
+						duration="0ms"
+						type="test case"
+						rid="2">
+						<activity
+							modulename="Test Case two"
+							moduletype="UserCode"
+							result="Failed"
+							duration="0ms"
+							type="test module"
+							rid="2">
+							
+							<datarow>
+							</datarow>
+									
 
+								<item
+									time="3:53:51"
+									level="Success"
+									category="Test Step one">
+									<message>
+										Open URL : https://accounts.google.com/
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+
+								</item>	
+								<item
+							       moduletype="UserCode"
+							       level="Failed"
+							       duration="0ms"
+							       type="bComponent"
+							       category="Business Component One"
+							       rid="2">
+							        <bitem
+									time="3:53:51"
+									level="Success"
+									category="BC Step One">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+								    <bitem
+								    moduletype="UserCode"
+								    duration="0ms"
+									level="Failed"
+									type="bComponent"
+									category="BC 1 Inside Another BC">
+									            <bitem
+								    				moduletype="UserCode"
+								    				duration="0ms"
+													level="Failed"
+													type="bComponent"
+													category="BC 2 Inside Another BC">
+									            <bitem
+									          		time="3:53:51"
+													level="Error"
+													category="BC 2 Step One iNSIDE aNOTHER BC"
+													errimg="images/20140925155436SS.png"
+													errthumb="images/20140925155436SS.png_Thumb.png">
+													<message>
+													Check Element Present command passed. Object gmail.userName
+													</message>
+													<metainfo
+													codefile="UNKNOWN"
+													codeline="UNKNOWN"
+													loglvl="Success"/>
+								    			</bitem>
+								    			<bitem
+								    				moduletype="UserCode"
+								    				duration="0ms"
+													level="Success"
+													type="bComponent"
+													category="BC 3 Inside Another BC">
+									            		<bitem
+									          				time="3:53:51"
+															level="Success"
+															category="BC 3 Step One iNSIDE aNOTHER BC">
+															<message>
+															Check Element Present command passed. Object gmail.userName
+															</message>
+															<metainfo
+															codefile="UNKNOWN"
+															codeline="UNKNOWN"
+															loglvl="Success"/>
+								    			</bitem>
+								    			</bitem>
+								    </bitem>
+									          <bitem
+									          time="3:53:51"
+												level="Success"
+												category="BC 1 Step One iNSIDE aNOTHER BC">
+												<message>
+													Check Element Present command passed. Object gmail.userName
+												</message>
+												<metainfo
+													codefile="UNKNOWN"
+													codeline="UNKNOWN"
+													loglvl="Success"/>
+								    			</bitem>
+								    </bitem>
+								     <bitem
+									time="3:53:51"
+									level="Success"
+									category="BC Step Three">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								    </bitem>
+
+								    </item>
+
+								<item
+									time="3:53:51"
+									level="Success"
+									category="Step Two">
+									<message>
+										Check Element Present command passed. Object gmail.userName
+									</message>
+									<metainfo
+										codefile="UNKNOWN"
+										codeline="UNKNOWN"
+										loglvl="Success"/>
+								</item>	
+					</activity>		
+				</activity>
+			</activity>
 	        
 	    </activity>
 	</activity>

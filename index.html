@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/stylesheet.css">
-
+    <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css">
 
 </head>
 
@@ -73,13 +73,13 @@
             <div class="row dark-row">
                 <div class="col-md-12">
                     <div class="pull-left">
-                        <button id="exapnd" class="btn btn-base btn-sm">Expand</button>
-                        <button class="btn btn-base btn-sm">Collapse</button>
+                        <button id="exapand" class="btn btn-base btn-sm">Expand</button>
+                        <button id="collapse"  class="btn btn-base btn-sm">Collapse</button>
                     </div>
                     <div class="pull-right">
                         <label>Test Case Filter :</label>
-                        <input type="checkbox" name="radiogroup" value="RadioButton" /> Pass
-                        <input type="checkbox" name="radiogroup" value="RadioButton" /> Fail
+                        <input id="passchk" type="checkbox" name="radiogroup" value="RadioButton" checked="true"/> Pass
+                        <input id="failchk" type="checkbox" name="radiogroup" value="RadioButton" checked="true" /> Fail
                         <input type="checkbox" name="radiogroup" value="RadioButton" /> Blocked
                     </div>
                 </div>
@@ -105,6 +105,7 @@
     <script src="bower_components/jquery.xml2json/src/jquery.xml2json.js"></script>
     <script src="bower_components/jQuery-Collapse/src/jquery.collapse.js"></script>
     <script src="bower_components/chartjs/Chart.min.js"></script>
+    <script src="bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
     <script src="js/app.js"></script>
 </body>
 
