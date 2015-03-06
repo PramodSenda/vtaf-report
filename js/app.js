@@ -7,7 +7,7 @@ var testSuites,
     testSuiteCount = 0,
     testCaseCount = 0,
     testStepCount = 0
-    bStepCount = 0,
+bStepCount = 0,
     testSuiteStatus = false,
     testCaseStatus = false,
     testStepStatus = false,
@@ -15,8 +15,8 @@ var testSuites,
     TestCaseID = 0,
     TestStepID = 0,
     bComponentID = 0,
-    testCaseStepCount=0;
-    status;
+    testCaseStepCount = 0;
+status;
 
 function intializePieChart(failvalue, passvalue) {
     'use strict';
@@ -72,13 +72,12 @@ function createReport(jsonObject) {
     bulidtree(tree, testSuites, "testsuite");
     treeBuild();
     intializeTestStatus();
-    
-    
- $("#stacktrace").on('click', function() {
+
+    $("#stacktrace").on('click', function () {
         //Do stuff when clicked
         console.log("sdfsdfsdfsdf");
     });
- 
+
 
 }
 
@@ -129,7 +128,7 @@ function bulidtree(tree, treeitem, type) {
             }
 
             var str = "";
-            str += '<h2 data-tcsts="'+tcasestatus+'" data-status="' + status + '"><i class=" glyphicon glyphicon-border glyphicon-plus"></i> ' + testCase.testcasename + '</h2>';
+            str += '<h2 data-tcsts="' + tcasestatus + '" data-status="' + status + '"><i class=" glyphicon glyphicon-border glyphicon-plus"></i> ' + testCase.testcasename + '</h2>';
             str += "<div class=\"testCase col-md-12\">";
             str += '<table id="testcase' + TestCaseID + '" class="table col-md-12">';
             str += '<tr class="teststep">';
@@ -170,7 +169,7 @@ function bulidtree(tree, treeitem, type) {
 
 
             if (testStep.type === "bComponent") {
-               
+
                 var str = "";
                 str += "<tr class=\"teststep\" id=\"teststep" + TestStepID + "\">";
                 str += "<td>" + (++testCaseStepCount) + "</td>";
@@ -201,20 +200,18 @@ function bulidtree(tree, treeitem, type) {
 
             } else {
 
-
-               
-                var str = '<tr class="teststep" data-status=\"'+status+'\" id="teststep' + TestStepID + '">';
+                var str = '<tr class="teststep" data-status=\"' + status + '\" id="teststep' + TestStepID + '">';
                 str += '<td>' + (++testCaseStepCount) + '</td>';
 
                 str += '<td>' + testStep.time + '</td>';
                 str += '<td>' + testStep.level + '</td>';
                 str += '<td>' + testStep.category + '</td>';
-                if(status == "success"){
-                 str += '<td>' + testStep.message[0].text + '</td>';
-                }else{
-                 str += '<td><div class="errordiv">' + testStep.message[0].text + '<div><a id="single_image" href=\"'+testStep.errimg+'\"><img src=\"'+testStep.errthumb+'\" alt=""/></a></div><div><h1 id="stacktrace">Stack Trace</h1><div id="stcontent">blahh</div></div></div></td>';
+                if (status == "success") {
+                    str += '<td>' + testStep.message[0].text + '</td>';
+                } else {
+                    str += '<td><div class="errordiv">' + testStep.message[0].text + '<div><a id="single_image" href=\"' + testStep.errimg + '\"><img src=\"' + testStep.errthumb + '\" alt=""/></a></div><div><h1 id="stacktrace">Stack Trace</h1><div id="stcontent">blahh</div></div></div></td>';
                 }
-                
+
                 str += '</tr>';
 
                 //testCaseNode.append('<tr><th>#</th><th>Time</th><th>Level</th><th>Action</th><th>Message</th></tr>');
@@ -232,7 +229,7 @@ function bulidtree(tree, treeitem, type) {
 
     } else if (testCaseStatus) {
         testCaseStatus = false;
-        testCaseStepCount=0;
+        testCaseStepCount = 0;
         bulidtree(tree, testCases, "testcase");
 
     } else if (testSuiteStatus) {
@@ -246,79 +243,80 @@ function bulidtree(tree, treeitem, type) {
 }
 
 var bstep;
+
 function createBcomponent(testCaseNode, testStep) {
 
     var bComponentNode = $("#bcomponent" + bComponentID + " > tbody:last");
-    
+
     var bCompItems = testStep.bitem;
 
     for (var c = 0; c < bCompItems.length; c++) {
-       // bstep = testCaseStepCount + "." + (c + 1)
+        // bstep = testCaseStepCount + "." + (c + 1)
         var bcomp = bCompItems[c];
-        if(bcomp.type==='bComponent'){
-         var bcNode = $('#bcomponent' + bComponentID +' tr:last');
-         bComponentID++;
-        bstep = testCaseStepCount + "." + (c + 1);
-         createNestedBComponents(bcNode,bcomp);
-        }else{
-
-        if (bcomp.level === "Success") {
-            status = "success";
+        if (bcomp.type === 'bComponent') {
+            var bcNode = $('#bcomponent' + bComponentID + ' tr:last');
+            bComponentID++;
+            bstep = testCaseStepCount + "." + (c + 1);
+            createNestedBComponents(bcNode, bcomp);
         } else {
-            status = "failed";
-        }
-        var strVar = "";
-        strVar += "<tr id=\"bstep"+bStepCount+"\" data-status=\"" + status + "\">";
-        //strVar += "<td>" + bstep + "<\/td>";
-        strVar += "<td>" + bcomp.time + "<\/td>";
-        strVar += "<td>" + bcomp.level + "<\/td>";
-        strVar += "<td>" + bcomp.category + "<\/td>";
-        if(status == "success"){
-          strVar += '<td>' + bcomp.message[0].text + '</td>';
-        }else{
-          strVar += '<td><div class="errordiv">' + bcomp.message[0].text + '<div><a id="single_image" href=\"'+bcomp.errimg+'\"><img src=\"'+bcomp.errthumb+'\" alt=""/></a></div><div><a id="stacktrace">Stack Trace</a><div id="stcontent">blahhh</div></div></div></td>';
-        }
-                
-        strVar += "<\/tr>";
-        bStepCount++;
-        //$( strVar ).insertAfter( bComponentNode );
-        bComponentNode.append(strVar);
-     }
-    }
 
-}
-
-function createNestedBComponents(mainNode,itemsArray){
-            if (itemsArray.level === "Success") {
+            if (bcomp.level === "Success") {
                 status = "success";
             } else {
                 status = "failed";
             }
+            var strVar = "";
+            strVar += "<tr id=\"bstep" + bStepCount + "\" data-status=\"" + status + "\">";
+            //strVar += "<td>" + bstep + "<\/td>";
+            strVar += "<td>" + bcomp.time + "<\/td>";
+            strVar += "<td>" + bcomp.level + "<\/td>";
+            strVar += "<td>" + bcomp.category + "<\/td>";
+            if (status == "success") {
+                strVar += '<td>' + bcomp.message[0].text + '</td>';
+            } else {
+                strVar += '<td><div class="errordiv">' + bcomp.message[0].text + '<div><a id="single_image" href=\"' + bcomp.errimg + '\"><img src=\"' + bcomp.errthumb + '\" alt=""/></a></div><div><a id="stacktrace">Stack Trace</a><div id="stcontent">blahhh</div></div></div></td>';
+            }
 
-            var str = "";
-                str += "<tr id=\"bstep"+bStepCount+"\" class=\"bComponent\">";
-                //str += "<td>"+bstep+"</td>";
-                str += "<td class='bcompnent' colspan=\"4\">";
-                str += '<h2 data-status="' + status + '"><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + itemsArray.category + '</h2>';
-                str += "<div>";
-                str += "<table id=\"bcomponent" + bComponentID + "\" class=\"table\"><tbody></tbody>";
-                str += "<tr class=\"bcomponent\">";
-                //str += '<th style="width:40px;">#</th>';
-                str += '<th class="col-md-2">Time</th>';
-                str += '<th class="col-md-2">Level</th>';
-                str += '<th class="col-md-2">Action</th>';
-                str += '<th class="col-md-8">Message</th>';
-                str += "<\/tr>";
-                str += "<\/table>";
-                str += "<\/div>";
-                str += "<\/td>";
-                str += "<\/tr>";
-                //mainNode.insertAfter(str);
-                $(str).insertAfter(mainNode);
+            strVar += "<\/tr>";
+            bStepCount++;
+            //$( strVar ).insertAfter( bComponentNode );
+            bComponentNode.append(strVar);
+        }
+    }
 
-              
-               bStepCount++;
-               createBcomponent(mainNode,itemsArray);
+}
+
+function createNestedBComponents(mainNode, itemsArray) {
+    if (itemsArray.level === "Success") {
+        status = "success";
+    } else {
+        status = "failed";
+    }
+
+    var str = "";
+    str += "<tr id=\"bstep" + bStepCount + "\" class=\"bComponent\">";
+    //str += "<td>"+bstep+"</td>";
+    str += "<td class='bcompnent' colspan=\"4\">";
+    str += '<h2 data-status="' + status + '"><i class="glyphicon glyphicon-border glyphicon-plus"></i> ' + itemsArray.category + '</h2>';
+    str += "<div>";
+    str += "<table id=\"bcomponent" + bComponentID + "\" class=\"table\"><tbody></tbody>";
+    str += "<tr class=\"bcomponent\">";
+    //str += '<th style="width:40px;">#</th>';
+    str += '<th class="col-md-2">Time</th>';
+    str += '<th class="col-md-2">Level</th>';
+    str += '<th class="col-md-2">Action</th>';
+    str += '<th class="col-md-8">Message</th>';
+    str += "<\/tr>";
+    str += "<\/table>";
+    str += "<\/div>";
+    str += "<\/td>";
+    str += "<\/tr>";
+    //mainNode.insertAfter(str);
+    $(str).insertAfter(mainNode);
+
+
+    bStepCount++;
+    createBcomponent(mainNode, itemsArray);
 
 
 }
@@ -346,152 +344,148 @@ function treeBuild() {
 }
 
 
-function intializeTestStatus(){
-  var passElements = $('h2[data-status="success"]');
-  var failedElements = $('h2[data-status="failed"]');
-  var failedSteps = $('tr[data-status="failed"]');
-  var passedSteps = $('tr[data-status="success"]');
+function intializeTestStatus() {
+    var passElements = $('h2[data-status="success"]');
+    var failedElements = $('h2[data-status="failed"]');
+    var failedSteps = $('tr[data-status="failed"]');
+    var passedSteps = $('tr[data-status="success"]');
 
-   $(passElements).each(function(){
+    $(passElements).each(function () {
 
-         $(this).find("i").css("background-color","green");
+        $(this).find("i").css("background-color", "green");
     });
 
-  $(failedElements).each(function(){
-         $(this).find("i").css("background-color","red");
-          $(this).find("a").trigger('click');
+    $(failedElements).each(function () {
+        $(this).find("i").css("background-color", "red");
+        $(this).find("a").trigger('click');
     });
 
-   $(failedSteps).each(function(){
-         $(this).css("color","red");
+    $(failedSteps).each(function () {
+        $(this).css("color", "red");
     });
-   $(passedSteps).each(function(){
-         $(this).css("color","green");
+    $(passedSteps).each(function () {
+        $(this).css("color", "green");
     });
 
 }
 
-function exapndTestCase(){
+function exapndTestCase() {
 
-  
 
-   var opt = getFilterOption();
-   if(opt===2){
-    var elements = $('h2');
-
-    $(elements).each(function(){
-         if ($(this).css('display') == 'none') {
-             $(this).show();
-             
-          }
-    }); 
-    var testcasenode = $('div[class="testSuite"] > h2'); 
-   
-      $(testcasenode).each(function(){
-         
-          if($(this).attr('class')!=='open'){
-          $(this).find('a').trigger('click');
-          } 
-    });   
-   }
-   else if(opt===1){
-
-     var failedElements = $('h2[data-tcsts="error"]');
-    
-    $(failedElements).each(function(){
-        
-
-         $(this).hide();
-         
-    });
-       
-   }
-   else if(opt===0){
-
-    var passElements = $('h2[data-tcsts="pass"]');
-    
-    $(passElements).each(function(){
-        
-
-         $(this).hide();
-         
-    });
-   }else{
-    
-    var elements = $('h2');
-
-    $(elements).each(function(){
-         
-             $(this).hide();
-             
-          
-    }); 
-
-   }
-
-}
-
-function collapseTestCase(){
 
     var opt = getFilterOption();
-   if(opt===2){
-     
-        
-     var elements = $('h2'); 
+    if (opt === 2) {
+        var elements = $('h2');
 
-      $(elements).each(function(){
+        $(elements).each(function () {
+            if ($(this).css('display') == 'none') {
+                $(this).show();
 
-          if($(this).attr('class')==='open'){
-          $(this).find('a').trigger('click');
-          } 
-    });   
-   }
-   else if(opt===1){
-     var failedElements = $('h2[data-tcsts="error"]');
-    
-    $(failedElements).each(function(){
-        
+            }
+        });
+        var testcasenode = $('div[class="testSuite"] > h2');
 
-         $(this).hide();
-         
-    });
+        $(testcasenode).each(function () {
 
-   }
-   else{
+            if ($(this).attr('class') !== 'open') {
+                $(this).find('a').trigger('click');
+            }
+        });
+    } else if (opt === 1) {
 
-      var passesElements = $('h2[data-tcsts="pass"]');
-    
-    $(passesElements).each(function(){
-        
+        var failedElements = $('h2[data-tcsts="error"]');
 
-         $(this).hide();
-        
-    });
-    
-   }
+        $(failedElements).each(function () {
+
+
+            $(this).hide();
+
+        });
+
+    } else if (opt === 0) {
+
+        var passElements = $('h2[data-tcsts="pass"]');
+
+        $(passElements).each(function () {
+
+
+            $(this).hide();
+
+        });
+    } else {
+
+        var elements = $('h2');
+
+        $(elements).each(function () {
+
+            $(this).hide();
+
+
+        });
+
+    }
+
+}
+
+function collapseTestCase() {
+
+    var opt = getFilterOption();
+    if (opt === 2) {
+
+
+        var elements = $('h2');
+
+        $(elements).each(function () {
+
+            if ($(this).attr('class') === 'open') {
+                $(this).find('a').trigger('click');
+            }
+        });
+    } else if (opt === 1) {
+        var failedElements = $('h2[data-tcsts="error"]');
+
+        $(failedElements).each(function () {
+
+
+            $(this).hide();
+
+        });
+
+    } else {
+
+        var passesElements = $('h2[data-tcsts="pass"]');
+
+        $(passesElements).each(function () {
+
+
+            $(this).hide();
+
+        });
+
+    }
 
 
 }
 
-function exapndStackTrace(link){
- link.next("div").hide();
+function exapndStackTrace(link) {
+    link.next("div").hide();
 
 }
 
-function getFilterOption(){
+function getFilterOption() {
 
     var passchkbox = $("#passchk");
     var failchkbox = $("#failchk");
     // $this will contain a reference to the checkbox   
-    if (passchkbox.is(':checked')&&failchkbox.is(':checked')) {
+    if (passchkbox.is(':checked') && failchkbox.is(':checked')) {
         return 2;
-    } else if(passchkbox.is(':checked')) {
-       return 1;
-    } else if(failchkbox.is(':checked')) {
-       return 0;
-    } else{
-     
-     return 3;
+    } else if (passchkbox.is(':checked')) {
+        return 1;
+    } else if (failchkbox.is(':checked')) {
+        return 0;
+    } else {
+
+        return 3;
     }
 }
 
@@ -501,39 +495,24 @@ function getFilterOption(){
 // A $( document ).ready() block.
 $(document).ready(function () {
     getJson();
+
     $("a#single_image").fancybox();
-    $("#exapand").click(function(){
+    $("#exapand").click(function () {
         exapndTestCase();
     });
-     $("#collapse").click(function(){
+    $("#collapse").click(function () {
         collapseTestCase();
     });
 
-     $('#passchk').click(function() {
-        
-           exapndTestCase();
+    $('#passchk').click(function () {
+
+        exapndTestCase();
     });
 
-     $('#failchk').click(function() {
-        
-           exapndTestCase();        
-        
+    $('#failchk').click(function () {
+
+        exapndTestCase();
+
     });
 
-  /* 
- $('#ee').live('click', function () {
-    $(this).css('background-color','red');
-    console.log("hello");
-        //$(this).find('div').hide();
-     
-         
-    });
-
-/*
-     $('#stacktrace').click(function() {
-        console.log('sdsd');
-         //  exapndTestCase();        
-          $("#stcontent").hide();
-    });
-*/
 });
